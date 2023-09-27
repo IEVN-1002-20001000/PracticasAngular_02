@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-6">
+        <div class="mb-3">
+                <h2>Conversor de temperaturas</h2>
+            <label class="form-label" for="">Ingresa la temperatura</label>
+            <input type="text" class="form-control" [(ngModel)]="temperatura" name="temp" placeholder="Temperatura">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="">Selecciona una opción</label>
+        </div>
+        <input type="radio" name="opcion" value="1" [(ngModel)]="opcion">Celsius
+        <br>
+        <input type="radio" name="opcion" value="2" [(ngModel)]="opcion">Farenheit
+        <br>
+        <br>
+        <button (click)="conversion()" class="btn btn-primary">Calcular</button>
+    </div>
+    <div class="col-6">
+        <h2>Resultado es: {{resultado}}</h2>
+    </div>
+</div>
