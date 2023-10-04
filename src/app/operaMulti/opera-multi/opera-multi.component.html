@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+        <label for="numero">Número 1</label>
+        <mat-form-field>
+            <input type="number" [(ngModel)]="multi" id="multi" name="multi">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <label for="veces">Número 2</label>
+        <mat-form-field>
+            <input type="number" [(ngModel)]="num" id="num" name="num">
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="calcular()">Calcular</button>
+    
+    <div *ngIf="restMulti !== ''">
+        <p>N1: {{ multi }}</p>
+        <p>N2: {{ num }}</p>
+        <p> {{ restMulti }} = {{ serie }}</p>
+    </div>
+</div>
