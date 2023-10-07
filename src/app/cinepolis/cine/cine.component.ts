@@ -6,48 +6,43 @@ import { Component } from '@angular/core';
   styleUrls: ['./cine.component.css']
 })
 export class CineComponent {
-  nombre:string='';
-  numcomp:number=0;
-  num:number=0;
-  resultado:number=0;
-  opcion:number=0;
-  aviso:string='';
-  total:string='';
-  calcular():void{
+  costoboleto:number = 12;
 
-    if(this.num>(7*this.numcomp)){
-      this.aviso = this.nombre + " no puedes comprar mas de 7 boletos por comprador" ;
-      this.resultado=0;
-    }
-    else{
-      this.aviso = "" ;
-      this.resultado=0;
-      if(this.opcion==1){
-        if (this.num== 1 || this.num==2)
-        this.resultado= this.num * 12;
-        else if (this.num== 3 || this.num==4 || this.num==5){
-          this.resultado= this.num * 12;
-          this.resultado= this.resultado*0.9;
-        }
-        else if (this.num>=6){
-          this.resultado= this.num * 12;
-          this.resultado= this.resultado*0.85;
-        }
-        this.resultado = this.resultado * 0.9;
+  nombre:string = '';
+  compradores:number = 0;
+  tarjeta:string = 'no';
+  boletos:number = 0;
+
+  total:number = 0;
+
+  mensaje:string = '';
+
+  calcular():void {
+    this.mensaje = '';
+    this.total = 0;
+
+
+    if(this.boletos/this.compradores > 7){
+      this.mensaje = 'no se pueden comprar mas de 7 boletos por persona'
+    }else if(this.boletos > 2){
+      if(this.boletos > 5){
+        this.total = (this.costoboleto*this.boletos)*.85;
+        this.mensaje = 'Se aplico un 15% de descuento a su compra';
+      }else{
+        this.total = (this.costoboleto*this.boletos)*.9;
+        this.mensaje = 'Se aplico un 10% de descuento a su compra';
       }
-      if(this.opcion==2){
-        if (this.num== 1 || this.num==2)
-        this.resultado= this.num * 12;
-        else if (this.num== 3 || this.num==4 || this.num==5){
-          this.resultado= this.num * 12;
-          this.resultado= this.resultado*0.9;
-        }
-        else if (this.num>=6){
-          this.resultado= this.num * 12;
-          this.resultado= this.resultado*0.85;
-        }
-      }
+    }else{
+      this.total = this.costoboleto*this.boletos;
     }
-    this.total=this.nombre + " tu total a pagar es de " + this.resultado;
+
+    console.log(this.tarjeta);
+
+    if(this.tarjeta == 'si'){
+      this.total = this.total * .9;
+      this.mensaje += 'Se le aplico un 10% de descuento más por su tarjeta CINECO'
+    }
   }
+
 }
+

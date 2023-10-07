@@ -1,54 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head class="cuerpo">
-    <title>CINECO</title>
-</head>
-
 <body>
-    <div class="container">
-        <h1 class="mt-5" style="color: aliceblue;">Cinepolis</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <form>
-                    <div class="form-group">
-                        <label for="nombre" style="color: aliceblue;">Nombre de la persona que realiza la compra:</label>
-                        <input type="text" [(ngModel)]='nombre' class="form-control" id="nombre" placeholder="Nombre">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="cantidad" style="color: aliceblue;">Cantidad de clientes:</label>
-                        <input type="number" [(ngModel)]='numcomp' class="form-control" name="comp" placeholder="Cantidad de Compradores"  min=1>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="cantidad" style="color: aliceblue;">Cantidad de boletos a comprar:</label>
-                        <input type="number" [(ngModel)]='num' class="form-control" name="num" placeholder="Numeros Boletos" min=1  max="7">
-                        {{aviso}}
-                    </div>
-                    <br>
-                    <div>
-                        <label class="label" style="color: aliceblue;">¿Usará tarjeta CINECO</label>
-                    </div>
-                    <br>
-                    <div class="form-check">
-                        <input class="form-check-input" [(ngModel)]='opcion'  type="radio" name="opcion" id="flexRadioDefault1" value="1"  >
-                        <label class="form-check-label" for="flexRadioDefault1" style="color: aliceblue;">Si</label>
-                    </div>
-                    <br>
-                    <div class="form-check">
-                        <input class="form-check-input" [(ngModel)]='opcion' type="radio" name="opcion" id="flexRadioDefault2" value="2" >
-                        <label class="form-check-label" for="flexRadioDefault2" style="color: aliceblue;">No</label>
-                    </div>
-                </form>
-            </div>
-            <br>
-            <div class="col-md-6">
-                <div class="text-right"><h2 style="color: aliceblue;">{{total}}</h2></div>
-                <button type="button" (click)='calcular()' class="btn btn-primary mt-3">Calcular Precio</button>
+<div class="container">
+    <div class=>
+        <h1>Cinepolis</h1>
+    </div>
+    <div class=>
+        <div class="col-10 border border-white p-4 mx-auto">
+            <p>Costo del boleto: ${{costoboleto}}</p>
+            <p>{{mensaje}}</p>
+        </div>
+    </div>
+    <div class=>
+        <div class="col-5 border border-white p-4 mx-auto">
+            <h3>Entradas</h3>
+            <div class="container-fluid">
+                <div>
+                    <label for="" class="mx-2">Nombre</label>
+                    <mat-form-field>
+                        <input matInput type="text" [(ngModel)]="nombre" placeholder="Nombre">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <label for="" class="mx-2">Cantidad de compradores</label>
+                    <mat-form-field>
+                        <input matInput type="number" [(ngModel)]="compradores" placeholder="Compradores">
+                    </mat-form-field>
+                </div>
+                <div class="d-flex">
+                    <label class="mx-2">Tarjeta del cine</label>
+                        <div class="px-2">
+                            <input type="radio" [(ngModel)]="tarjeta" name="tarjeta" value="si">
+                            <label for="num2" class="form-label">si</label>                  
+                        </div>
+                        <div class="px-2">
+                            <input type="radio" [(ngModel)]="tarjeta" name="tarjeta" value="no">
+                            <label for="num2" class="form-label">no</label>                  
+                        </div>
+                </div>
+                <div>
+                    <label for="" class="mx-2">Cantidad de boletos</label>
+                    <mat-form-field>
+                        <input matInput type="number" [(ngModel)]="boletos" placeholder="Boletos">
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-        </div> 
-    </body>
-</html>
-
+        <div class="col-5 border border-white p-4 mx-auto">
+            <h3>Salidas</h3>
+            <div class="container-fluid d-flex">
+                <p>Total a Pagar: <span class="p-2" style="background-color: white; color: black; border-radius: 5px;">{{total}}</span></p>
+            </div>
+        </div>
+    </div>
+    <div >
+        <div>
+            <div class=>
+                <button mat-raised-button class="mx-auto" (click)="calcular()">Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 
