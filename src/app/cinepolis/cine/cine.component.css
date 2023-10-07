@@ -1,0 +1,18 @@
+body{
+    background-image: url('https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2021/11/sala-cine-cadena-amc-estados-unidos-2529691.jpg?tf=3840x');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 1500px;
+    height: 750px;
+}
+
+.form-check-label{
+    text-emphasis-color: white;
+    text-decoration: antiquewhite;
+    text-decoration-color: aliceblue;
+}
